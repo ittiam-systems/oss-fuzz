@@ -14,15 +14,6 @@
 # limitations under the License.
 #
 ################################################################################
+# Run the OSS-Fuzz script in the project.
+$SRC/libldac/fuzzer/ossfuzz.sh
 
-$CC $CFLAGS -Iinc -c $SRC/libldac_encode_fuzzer.cc -o libldac_encode_fuzzer.o
-$CC $CFLAGS -Iinc -c src/ldaclib.c -o src/ldaclib.o
-$CC $CFLAGS -Iinc -c src/ldacBT.c -o src/ldacBT.o
-
-$CXX $CXXFLAGS $LIB_FUZZING_ENGINE \
-	libldac_encode_fuzzer.o \
-	src/ldaclib.o \
-	src/ldacBT.o \
-	-o $OUT/libldac_encode_fuzzer
-
-zip -q $OUT/libldac_encode_fuzzer_seed_corpus.zip $SRC/corpora/*

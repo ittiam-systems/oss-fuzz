@@ -22,4 +22,4 @@ RUN svn export https://github.com/mozillasecurity/fuzzdata.git/trunk/samples/wav
 
 WORKDIR libldac
 
-COPY build.sh libldac_encode_fuzzer.cc $SRC/
+COPY build.sh $SRC/
